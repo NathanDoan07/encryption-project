@@ -17,7 +17,6 @@ using namespace std;
 string xor_encrypt(string text, char key){
     string input = "";
 
-    // Iterate through each character of the string and perform XOR operation
     for (int i = 0; i < text.length(); i++)
     {
         input += text[i] ^ key;
@@ -30,7 +29,6 @@ string xor_encrypt(string text, char key){
 string xor_decrypt(string text, char key){
     string output = "";
 
-    // Iterate through each character of the string and perform XOR operation
     for (int i = 0; i < text.length(); i++){
         output += text[i] ^ key;
     }
@@ -47,7 +45,7 @@ string caesar_decrypt(string text, char key){
 }
 
 int main() {
-    // Display menu options
+    // Display the menu options
     cout << "Choose an option (Enter 1 or 2):" << endl;
     cout << "1. Encrypt a file" << endl;
     cout << "2. Decrypt a file" << endl;
@@ -56,7 +54,7 @@ int main() {
     cin >> option;
 
     if (option == 1) {
-        // Get the filename from the user
+        // Ask for the filename from the user
         string filename;
         cout << "Enter a filename to encrypt (End with .txt): ";
         cin >> filename;
@@ -70,12 +68,12 @@ int main() {
         cin >> method;
 
         if (method == 1) {
-            // Get the encryption key from the user
+            // Ask for the encryption key from the user
             char ekey;
             cout << "Enter the encryption key (single ASCII character): ";
             cin >> ekey;
 
-            // Open the file for reading
+            // Open the file
             ifstream fin(filename);
 
             if (!fin) {
@@ -93,19 +91,19 @@ int main() {
 
             // Encrypt the string using XOR cipher
             string encrypted = xor_encrypt(content, ekey);
-            // Write the encrypted string to the file
+            // Write to the file
             ofstream etext(filename);
             etext << encrypted;
             etext.close();
 
             cout << "Encrypt file successfully!" << endl;
         } else if (method == 2) {
-            // Get the encryption key from the user
+            // Ask for the encryption key from the user
             int ekey;
             cout << "Enter the encryption key (integer 1-25): ";
             cin >> ekey;
 
-            // Open the file for reading
+            // Open the file
             ifstream fin(filename);
 
             if (!fin) {
@@ -124,18 +122,18 @@ int main() {
             // Encrypt the string using Caesar cipher
             string encrypted = caesar_encrypt(content, ekey);
 
-            // Write the encrypted string to the file
+            // Write to the file
             ofstream etext(filename);
             etext << encrypted;
             etext.close();
 
             cout << "Encrypt file successfully!" << endl;
         } else {
-            cout << "Invalid method option!" << endl;
+            cout << "Invalid method option, choose another option!" << endl;
             return 1;
         }
     } else if (option == 2) {
-        // Get the filename from the user
+        // Ask for the filename from the user
         string filename;
         cout << "Enter a filename to decrypt(End with .txt): ";
         cin >> filename;
@@ -149,12 +147,12 @@ int main() {
         cin >> method;
 
         if (method == 1) {
-            // Get the encryption key from the user
+            // Ask for the encryption key from the user
             char ekey;
             cout << "Enter the encryption key(single ASCII character - it should be similar to the encryption key of encrypt algorithm): ";
             cin >> ekey;
 
-            // Open the file for reading
+            // Open the file
             ifstream fin(filename);
 
             if (!fin) {
@@ -173,19 +171,19 @@ int main() {
             // Decrypt the string using XOR cipher
             string decrypted = xor_decrypt(content, ekey);
 
-            // Write the decrypted string to the file
+            // Write to the file
             ofstream dtext(filename);
             dtext << decrypted;
             dtext.close();
 
             cout << "Decrypt file successfully!" << endl;
         } else if (method == 2) {
-            // Get the encryption key from the user
+            // Ask for the encryption key from the user
             int ekey;
             cout << "Enter the encryption key (integer 1-25): ";
             cin >> ekey;
 
-            // Open the file for reading
+            // Open the file
             ifstream fin(filename);
 
             if (!fin) {
@@ -204,18 +202,18 @@ int main() {
             // Decrypt the string using Caesar cipher
             string decrypted = caesar_decrypt(content, ekey);
 
-            // Write the decrypted string to the file
+            // Write to the file
             ofstream dtext(filename);
             dtext << decrypted;
             dtext.close();
 
             cout << "Decrypt file successfully!" << endl;
         } else {
-            cout << "Invalid method option!" << endl;
+            cout << "Invalid method option, choose another option!" << endl;
             return 1;
         }
     } else {
-        cout << "Invalid option!" << endl;
+        cout << "Invalid option, choose another option!" << endl;
         return 1;
     }
 
