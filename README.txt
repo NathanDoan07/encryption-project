@@ -1,5 +1,6 @@
 NOTE: 
-->Caeser Cipher textfile must ONLY contain alphabetical letters.
+-Caeser Cipher textfile must ONLY contain alphabetical letters.
+-Both ciphers are symmetric and require the SAME key to encrypt/decrypt.
 
 ENCRYPTION INSTRUCTIONS:
 1. File must be a .txt.
